@@ -11,6 +11,7 @@ import shop.mtcoding.ajax.model.Category;
 import shop.mtcoding.ajax.model.Tech;
 
 public class TechResponse {
+    
     @Getter
     @Setter
     public static class MainDTO {
