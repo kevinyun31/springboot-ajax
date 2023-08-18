@@ -10,4 +10,4 @@ public class AjaxApplication {
 		SpringApplication.run(AjaxApplication.class, args);
 	}
 
-}
+} 
