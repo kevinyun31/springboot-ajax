@@ -8,17 +8,32 @@
 </head>
 
 <body>
+
     <h1>카테고리별 기술 목록보기</h1>
     <hr />
+    <select id="category">
+    </select>
 
     <select>
-        <option></option>
-        
     </select>
-        <select>
-            <option></option>
-        </select>
-        
+
+    <script>
+        async function fetchCategory() {
+            let response = await fetch("/api/category");
+            let body = await response.json(); // json -> js object
+            let categoryEl = document.querySelector("#category");
+
+            for (c of body) {
+                let optionEl = document.createElement("option");
+                optionEl.innerHTML = c.name;
+                categoryEl.append(optionEl);
+            }
+            //console.log(body);
+        }
+        fetchCategory();
+    </script>
+
 </body>
+
 
 </html>

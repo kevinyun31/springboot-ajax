@@ -16,12 +16,13 @@ import shop.mtcoding.ajax.model.TechRepository;
 
 @Controller
 public class TechController {
+
     @Autowired
     private TechRepository techRepository;
+
     @Autowired
     private CategoryRepository categoryRepository;
 
-    // DTO를 사용하여 LAZY로딩 막기
     @GetMapping("/v1/test/tech")
     public @ResponseBody TechResponse.MainDTO techV1() {
         List<Category> categoryList = categoryRepository.findAll();
@@ -31,22 +32,21 @@ public class TechController {
         return mainDTO; // messageconverter 발동 - json 변환
     }
 
-    // DTO를 사용하지 않고
     @GetMapping("/v2/test/tech")
     public @ResponseBody List<Tech> techV2() {
         List<Tech> techList = techRepository.findByCategoryId(1);
         return techList; // messageconverter 발동 - json 변환
     }
 
+    // 1. 빈껍데기 디자인을 준다 (데이터 없음)
     @GetMapping("/tech")
     public String tech() {
-               return "main";
+        return "main";
     }
 
+    @GetMapping("/api/category")
+    public @ResponseBody List<Category> category() {
 
-
-
-
-
-    
+        return categoryRepository.findAll();
+    }
 }

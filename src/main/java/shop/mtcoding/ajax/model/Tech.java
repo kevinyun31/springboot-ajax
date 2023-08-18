@@ -21,6 +21,7 @@ import net.bytebuddy.dynamic.TypeResolutionStrategy.Lazy;
 @Table(name = "tech_tb")
 @Entity
 public class Tech {
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Integer id;
